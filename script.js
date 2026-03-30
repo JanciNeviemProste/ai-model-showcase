@@ -2,23 +2,20 @@
   'use strict';
 
   // ============================================================
-  // DATA
+  // DATA — dual scoring: "delivered" = as-is output, "fixed" = after manual fixes
   // ============================================================
   var models = {
     opus: {
-      key: 'opus',
-      name: 'Claude Opus 4.6',
-      site: 'NexusAI',
-      time: '10m 47s',
-      timeMin: 10.78,
-      tech: 'Vanilla HTML/CSS/JS',
-      color: '#8b5cf6',
-      colorAlpha: 'rgba(139,92,246,0.25)',
+      key: 'opus', name: 'Claude Opus 4.6', site: 'NexusAI',
+      time: '10m 47s', timeMin: 10.78, tech: 'Vanilla HTML/CSS/JS',
+      color: '#8b5cf6', colorAlpha: 'rgba(139,92,246,0.25)',
       iframeSrc: 'sites/opus/index.html',
-      rank: 1,
-      total: 92.6,
-      scores: { 'Design & UX': 93, 'Kvalita kódu': 90, 'Responzívnosť': 88, 'Obsah': 95, 'Funkcie': 95, 'Prístupnosť': 96, 'Výkon': 92, 'SEO': 82, 'Efektivita': 98 },
+      iframeSrcOriginal: 'sites/opus/index.html',
+      needsFix: false,
+      delivered: { 'Design & UX': 93, 'Kvalita kódu': 90, 'Responzívnosť': 88, 'Obsah': 95, 'Funkcie': 95, 'Prístupnosť': 96, 'Výkon': 92, 'SEO': 82, 'Efektivita': 98 },
+      fixed:     { 'Design & UX': 93, 'Kvalita kódu': 90, 'Responzívnosť': 88, 'Obsah': 95, 'Funkcie': 95, 'Prístupnosť': 96, 'Výkon': 92, 'SEO': 82, 'Efektivita': 98 },
       highlights: [
+        'Funguje okamžite bez buildu',
         'Carousel s touch/swipe/keyboard',
         'Animované čítače s easing',
         'Google Maps embed',
@@ -26,21 +23,18 @@
         'prefers-reduced-motion listener',
         'Unsplash reálne fotky'
       ],
-      issues: ['Chýba JSON-LD schema.org']
+      issues: ['Chýba JSON-LD schema.org'],
+      deliveredNote: 'Funguje perfektne ako dodané. Žiadne opravy potrebné.'
     },
     sonnet: {
-      key: 'sonnet',
-      name: 'Claude Sonnet 4.6',
-      site: 'Nexora AI',
-      time: '16m 45s',
-      timeMin: 16.75,
-      tech: 'Next.js 16 + TypeScript + Tailwind',
-      color: '#3b82f6',
-      colorAlpha: 'rgba(59,130,246,0.25)',
+      key: 'sonnet', name: 'Claude Sonnet 4.6', site: 'Nexora AI',
+      time: '16m 45s', timeMin: 16.75, tech: 'Next.js 16 + TypeScript + Tailwind',
+      color: '#3b82f6', colorAlpha: 'rgba(59,130,246,0.25)',
       iframeSrc: 'sites/sonnet/index.html',
-      rank: 2,
-      total: 89.6,
-      scores: { 'Design & UX': 92, 'Kvalita kódu': 95, 'Responzívnosť': 92, 'Obsah': 90, 'Funkcie': 85, 'Prístupnosť': 92, 'Výkon': 82, 'SEO': 78, 'Efektivita': 85 },
+      iframeSrcOriginal: 'sites/sonnet-original/index.html',
+      needsFix: true,
+      delivered: { 'Design & UX': 30, 'Kvalita kódu': 95, 'Responzívnosť': 30, 'Obsah': 70, 'Funkcie': 20, 'Prístupnosť': 45, 'Výkon': 82, 'SEO': 78, 'Efektivita': 45 },
+      fixed:     { 'Design & UX': 92, 'Kvalita kódu': 95, 'Responzívnosť': 92, 'Obsah': 90, 'Funkcie': 85, 'Prístupnosť': 92, 'Výkon': 82, 'SEO': 78, 'Efektivita': 85 },
       highlights: [
         'TypeScript strict mode',
         'Framer Motion animácie',
@@ -49,22 +43,24 @@
         'Scroll spy navigácia',
         'useScrollSpy custom hook'
       ],
-      issues: ['Žiadny carousel', 'Žiadna mapa', 'Gradient namiesto fotiek']
+      issues: [
+        'KRITICKÉ: Web je neviditeľný na statickom hostingu (45× opacity:0)',
+        'Framer Motion SSR vyžaduje funkčnú React hydráciu',
+        'Žiadny carousel', 'Žiadna mapa', 'Gradient namiesto fotiek'
+      ],
+      deliveredNote: 'Stránka je kompletne NEVIDITEĽNÁ. Framer Motion nastaví 45 elementov na opacity:0. Bez funkčnej React hydrácie obsah nikdy nezmizne. Kód je excelentný, ale výsledok nefunkčný.'
     },
     kimi: {
-      key: 'kimi',
-      name: 'Kimi 2.5',
-      site: 'NeuralFlow AI',
-      time: '19m 27s',
-      timeMin: 19.45,
-      tech: 'Vanilla HTML/CSS/JS',
-      color: '#06b6d4',
-      colorAlpha: 'rgba(6,182,212,0.25)',
+      key: 'kimi', name: 'Kimi 2.5', site: 'NeuralFlow AI',
+      time: '19m 27s', timeMin: 19.45, tech: 'Vanilla HTML/CSS/JS',
+      color: '#06b6d4', colorAlpha: 'rgba(6,182,212,0.25)',
       iframeSrc: 'sites/kimi/index.html',
-      rank: 3,
-      total: 87.9,
-      scores: { 'Design & UX': 90, 'Kvalita kódu': 91, 'Responzívnosť': 88, 'Obsah': 92, 'Funkcie': 88, 'Prístupnosť': 85, 'Výkon': 90, 'SEO': 68, 'Efektivita': 80 },
+      iframeSrcOriginal: 'sites/kimi/index.html',
+      needsFix: false,
+      delivered: { 'Design & UX': 90, 'Kvalita kódu': 91, 'Responzívnosť': 88, 'Obsah': 92, 'Funkcie': 88, 'Prístupnosť': 85, 'Výkon': 90, 'SEO': 68, 'Efektivita': 80 },
+      fixed:     { 'Design & UX': 90, 'Kvalita kódu': 91, 'Responzívnosť': 88, 'Obsah': 92, 'Funkcie': 88, 'Prístupnosť': 85, 'Výkon': 90, 'SEO': 68, 'Efektivita': 80 },
       highlights: [
+        'Funguje okamžite bez buildu',
         'Canvas neural particle animácia',
         'Fluid typografia s clamp()',
         'IIFE modularný vzor',
@@ -72,29 +68,33 @@
         'prefers-reduced-motion',
         'ResizeObserver pre canvas'
       ],
-      issues: ['Chýba OG tags', 'Chýba JSON-LD', 'Žiadny carousel']
+      issues: ['Chýba OG tags', 'Chýba JSON-LD', 'Žiadny carousel'],
+      deliveredNote: 'Funguje perfektne ako dodané. Žiadne opravy potrebné.'
     },
     gemini: {
-      key: 'gemini',
-      name: 'Gemini 3.1 Pro',
-      site: 'NexTech Solutions',
-      time: '23m 31s',
-      timeMin: 23.52,
-      tech: 'Next.js 16 + TypeScript + Tailwind',
-      color: '#f59e0b',
-      colorAlpha: 'rgba(245,158,11,0.25)',
+      key: 'gemini', name: 'Gemini 3.1 Pro', site: 'NexTech Solutions',
+      time: '23m 31s', timeMin: 23.52, tech: 'Next.js 16 + TypeScript + Tailwind',
+      color: '#f59e0b', colorAlpha: 'rgba(245,158,11,0.25)',
       iframeSrc: 'sites/gemini/index.html',
-      rank: 4,
-      total: 83.2,
-      scores: { 'Design & UX': 88, 'Kvalita kódu': 92, 'Responzívnosť': 88, 'Obsah': 87, 'Funkcie': 78, 'Prístupnosť': 75, 'Výkon': 82, 'SEO': 65, 'Efektivita': 68 },
+      iframeSrcOriginal: 'sites/gemini-original/index.html',
+      needsFix: true,
+      delivered: { 'Design & UX': 25, 'Kvalita kódu': 80, 'Responzívnosť': 30, 'Obsah': 10, 'Funkcie': 15, 'Prístupnosť': 35, 'Výkon': 82, 'SEO': 55, 'Efektivita': 20 },
+      fixed:     { 'Design & UX': 88, 'Kvalita kódu': 92, 'Responzívnosť': 88, 'Obsah': 87, 'Funkcie': 78, 'Prístupnosť': 75, 'Výkon': 82, 'SEO': 65, 'Efektivita': 68 },
       highlights: [
         'Multi-page architektúra (4 stránky)',
         'Reusable UI komponenty',
         'Centralizovaný data.ts',
-        'Glassmorphism dizajn',
-        'Framer Motion animácie'
+        'Glassmorphism dizajn'
       ],
-      issues: ['Chaotická adresárová štruktúra', 'Chýbali skip links', 'Žiadne OG tags', 'Pýtal sa otázky počas generovania']
+      issues: [
+        'KRITICKÉ: Homepage je default Next.js "To get started, edit page.tsx"',
+        'Chaotická 3-úrovňová vnorená adresárová štruktúra',
+        'Route stránky v nesprávnom priečinku',
+        'Navigačné linky vedú na neexistujúce stránky',
+        'Chýbali skip links', 'Žiadne OG tags',
+        'Najpomalší + pýtal sa otázky počas generovania'
+      ],
+      deliveredNote: 'Homepage zobrazuje DEFAULT Next.js template ("To get started, edit page.tsx"). Gemini nikdy nedokončil hlavnú stránku. Vytvoril 3-úrovňovú vnorenú štruktúru a route pages dal do zlého priečinka. Navigácia vedie na 404.'
     }
   };
 
@@ -113,9 +113,61 @@
   var modelOrder = ['opus', 'sonnet', 'kimi', 'gemini'];
   var currentModel = 'opus';
   var currentDevice = 'desktop';
+  var currentMode = 'delivered'; // 'delivered' or 'fixed'
+  var charts = {};
+
+  function getScores(k) { return models[k][currentMode]; }
+  function getTotal(k) {
+    var s = getScores(k);
+    var t = 0;
+    categories.forEach(function(c) { t += s[c.key] * c.weight; });
+    return Math.round(t * 10) / 10;
+  }
+  function getRanking() {
+    var arr = modelOrder.map(function(k){ return { k:k, t: getTotal(k) }; });
+    arr.sort(function(a,b){ return b.t - a.t; });
+    var ranks = {};
+    arr.forEach(function(item, i){ ranks[item.k] = i + 1; });
+    return ranks;
+  }
 
   // ============================================================
-  // CHART.JS DEFAULTS
+  // MODE TOGGLE
+  // ============================================================
+  window.setMode = function(mode) {
+    currentMode = mode;
+    document.querySelectorAll('.mode-btn').forEach(function(b) {
+      b.classList.toggle('active', b.getAttribute('data-mode') === mode);
+    });
+    rebuildAll();
+  };
+
+  function rebuildAll() {
+    buildScoreTable();
+    buildModelCards();
+    buildCategoryWinners();
+    updateTotalsInHeader();
+    rebuildCharts();
+    // Update iframe src for current model
+    var m = models[currentModel];
+    var frame = document.getElementById('previewFrame');
+    if (frame) frame.src = currentMode === 'delivered' ? m.iframeSrcOriginal : m.iframeSrc;
+    // Update preview info
+    switchModelInfo(currentModel);
+  }
+
+  function updateTotalsInHeader() {
+    var footer = document.querySelector('.total-row');
+    if (!footer) return;
+    var cells = footer.querySelectorAll('td');
+    if (cells.length < 6) return;
+    ['opus','sonnet','kimi','gemini'].forEach(function(k, i) {
+      cells[i + 2].innerHTML = '<strong>' + getTotal(k) + '%</strong>';
+    });
+  }
+
+  // ============================================================
+  // CHART HELPERS
   // ============================================================
   function initChartDefaults() {
     if (!window.Chart) return;
@@ -125,40 +177,38 @@
     Chart.defaults.font.size = 12;
   }
 
+  function rebuildCharts() {
+    Object.keys(charts).forEach(function(k) { if (charts[k]) charts[k].destroy(); });
+    charts = {};
+    buildRankingChart();
+    buildRadarChart();
+    buildTimeChart();
+    buildEfficiencyChart();
+  }
+
   // ============================================================
-  // RANKING CHART (horizontal bar)
+  // RANKING CHART
   // ============================================================
   function buildRankingChart() {
     var ctx = document.getElementById('rankingChart');
     if (!ctx || !window.Chart) return;
-    var sorted = modelOrder.slice().sort(function(a,b){ return models[b].total - models[a].total; });
-    new Chart(ctx, {
+    var sorted = modelOrder.slice().sort(function(a,b){ return getTotal(b) - getTotal(a); });
+    charts.ranking = new Chart(ctx, {
       type: 'bar',
       data: {
         labels: sorted.map(function(k){ return models[k].name; }),
         datasets: [{
-          data: sorted.map(function(k){ return models[k].total; }),
+          data: sorted.map(function(k){ return getTotal(k); }),
           backgroundColor: sorted.map(function(k){ return models[k].colorAlpha; }),
           borderColor: sorted.map(function(k){ return models[k].color; }),
-          borderWidth: 2,
-          borderRadius: 8,
-          borderSkipped: false
+          borderWidth: 2, borderRadius: 8, borderSkipped: false
         }]
       },
       options: {
-        indexAxis: 'y',
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: function(ctx){ return ' ' + ctx.parsed.x.toFixed(1) + '%'; }
-            }
-          }
-        },
+        indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(ctx){ return ' ' + ctx.parsed.x.toFixed(1) + '%'; } } } },
         scales: {
-          x: { min: 70, max: 100, ticks: { callback: function(v){ return v + '%'; } }, grid: { color: 'rgba(255,255,255,0.05)' } },
+          x: { min: 0, max: 100, ticks: { callback: function(v){ return v + '%'; } }, grid: { color: 'rgba(255,255,255,0.05)' } },
           y: { grid: { display: false }, ticks: { font: { size: 13, weight: '600' } } }
         }
       }
@@ -173,113 +223,52 @@
     if (!ctx || !window.Chart) return;
     var labels = categories.map(function(c){ return c.key; });
     var datasets = modelOrder.map(function(k) {
-      var m = models[k];
+      var m = models[k]; var s = getScores(k);
       return {
-        label: m.name,
-        data: labels.map(function(l){ return m.scores[l]; }),
-        borderColor: m.color,
-        backgroundColor: m.colorAlpha,
-        borderWidth: 2,
-        pointBackgroundColor: m.color,
-        pointRadius: 4,
-        pointHoverRadius: 6
+        label: m.name, data: labels.map(function(l){ return s[l]; }),
+        borderColor: m.color, backgroundColor: m.colorAlpha,
+        borderWidth: 2, pointBackgroundColor: m.color, pointRadius: 4, pointHoverRadius: 6
       };
     });
-    new Chart(ctx, {
+    charts.radar = new Chart(ctx, {
       type: 'radar',
       data: { labels: labels, datasets: datasets },
       options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          r: {
-            min: 60,
-            max: 100,
-            ticks: { stepSize: 10, backdropColor: 'transparent', callback: function(v){ return v + '%'; } },
-            grid: { color: 'rgba(255,255,255,0.08)' },
-            angleLines: { color: 'rgba(255,255,255,0.08)' },
-            pointLabels: { font: { size: 12 }, color: '#a0a0b8' }
-          }
-        },
-        plugins: {
-          legend: { position: 'bottom', labels: { padding: 20, usePointStyle: true, pointStyleWidth: 10 } },
-          tooltip: { callbacks: { label: function(ctx){ return ' ' + ctx.dataset.label + ': ' + ctx.parsed.r + '%'; } } }
-        }
+        responsive: true, maintainAspectRatio: false,
+        scales: { r: { min: 0, max: 100, ticks: { stepSize: 20, backdropColor: 'transparent', callback: function(v){ return v + '%'; } }, grid: { color: 'rgba(255,255,255,0.08)' }, angleLines: { color: 'rgba(255,255,255,0.08)' }, pointLabels: { font: { size: 12 }, color: '#a0a0b8' } } },
+        plugins: { legend: { position: 'bottom', labels: { padding: 20, usePointStyle: true, pointStyleWidth: 10 } }, tooltip: { callbacks: { label: function(ctx){ return ' ' + ctx.dataset.label + ': ' + ctx.parsed.r + '%'; } } } }
       }
     });
   }
 
   // ============================================================
-  // TIME CHART
+  // TIME + EFFICIENCY CHARTS
   // ============================================================
   function buildTimeChart() {
     var ctx = document.getElementById('timeChart');
     if (!ctx || !window.Chart) return;
     var sorted = modelOrder.slice().sort(function(a,b){ return models[a].timeMin - models[b].timeMin; });
-    new Chart(ctx, {
+    charts.time = new Chart(ctx, {
       type: 'bar',
       data: {
         labels: sorted.map(function(k){ return models[k].name; }),
-        datasets: [{
-          label: 'Čas (minúty)',
-          data: sorted.map(function(k){ return models[k].timeMin; }),
-          backgroundColor: sorted.map(function(k){ return models[k].colorAlpha; }),
-          borderColor: sorted.map(function(k){ return models[k].color; }),
-          borderWidth: 2,
-          borderRadius: 8,
-          borderSkipped: false
-        }]
+        datasets: [{ data: sorted.map(function(k){ return models[k].timeMin; }), backgroundColor: sorted.map(function(k){ return models[k].colorAlpha; }), borderColor: sorted.map(function(k){ return models[k].color; }), borderWidth: 2, borderRadius: 8, borderSkipped: false }]
       },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false },
-          tooltip: { callbacks: { label: function(ctx){ return ' ' + modelOrder.filter(function(k){ return models[k].name === ctx.label; }).map(function(k){ return models[k].time; })[0]; } } }
-        },
-        scales: {
-          y: { ticks: { callback: function(v){ return v + 'min'; } }, grid: { color: 'rgba(255,255,255,0.05)' } },
-          x: { grid: { display: false }, ticks: { font: { size: 11 } } }
-        }
-      }
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { ticks: { callback: function(v){ return v + 'min'; } }, grid: { color: 'rgba(255,255,255,0.05)' } }, x: { grid: { display: false } } } }
     });
   }
 
-  // ============================================================
-  // EFFICIENCY CHART (score per minute)
-  // ============================================================
   function buildEfficiencyChart() {
     var ctx = document.getElementById('efficiencyChart');
     if (!ctx || !window.Chart) return;
-    var sorted = modelOrder.slice().sort(function(a,b){
-      return (models[b].total / models[b].timeMin) - (models[a].total / models[a].timeMin);
-    });
-    new Chart(ctx, {
+    var sorted = modelOrder.slice().sort(function(a,b){ return (getTotal(b) / models[b].timeMin) - (getTotal(a) / models[a].timeMin); });
+    charts.efficiency = new Chart(ctx, {
       type: 'bar',
       data: {
         labels: sorted.map(function(k){ return models[k].name; }),
-        datasets: [{
-          label: '% skóre / minútu',
-          data: sorted.map(function(k){ return (models[k].total / models[k].timeMin).toFixed(2); }),
-          backgroundColor: sorted.map(function(k){ return models[k].colorAlpha; }),
-          borderColor: sorted.map(function(k){ return models[k].color; }),
-          borderWidth: 2,
-          borderRadius: 8,
-          borderSkipped: false
-        }]
+        datasets: [{ data: sorted.map(function(k){ return (getTotal(k) / models[k].timeMin).toFixed(2); }), backgroundColor: sorted.map(function(k){ return models[k].colorAlpha; }), borderColor: sorted.map(function(k){ return models[k].color; }), borderWidth: 2, borderRadius: 8, borderSkipped: false }]
       },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false },
-          tooltip: { callbacks: { label: function(ctx){ return ' ' + ctx.parsed.y + ' bod/min'; } } }
-        },
-        scales: {
-          y: { ticks: { callback: function(v){ return v + ' b/m'; } }, grid: { color: 'rgba(255,255,255,0.05)' } },
-          x: { grid: { display: false }, ticks: { font: { size: 11 } } }
-        }
-      }
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { ticks: { callback: function(v){ return v + ' b/m'; } }, grid: { color: 'rgba(255,255,255,0.05)' } }, x: { grid: { display: false } } } }
     });
   }
 
@@ -291,20 +280,17 @@
     if (!tbody) return;
     var html = '';
     categories.forEach(function(cat) {
-      var scores = modelOrder.map(function(k){ return { k:k, v: models[k].scores[cat.key] }; });
-      var maxVal = Math.max.apply(null, scores.map(function(s){ return s.v; }));
-      html += '<tr>';
-      html += '<td>' + cat.key + '</td>';
-      html += '<td style="color:var(--text3)">' + Math.round(cat.weight * 100) + '%</td>';
-      // order: opus, sonnet, kimi, gemini
+      var vals = modelOrder.map(function(k){ return getScores(k)[cat.key]; });
+      var maxVal = Math.max.apply(null, vals);
+      html += '<tr><td>' + cat.key + '</td><td style="color:var(--text3)">' + Math.round(cat.weight * 100) + '%</td>';
       ['opus','sonnet','kimi','gemini'].forEach(function(k) {
-        var v = models[k].scores[cat.key];
-        var isBest = v === maxVal;
-        html += '<td class="col-' + k + (isBest ? ' best' : '') + '">' + v + '%</td>';
+        var v = getScores(k)[cat.key];
+        html += '<td class="col-' + k + (v === maxVal ? ' best' : '') + '">' + v + '%</td>';
       });
       html += '</tr>';
     });
     tbody.innerHTML = html;
+    updateTotalsInHeader();
   }
 
   // ============================================================
@@ -313,32 +299,37 @@
   function buildModelCards() {
     var grid = document.getElementById('modelsGrid');
     if (!grid) return;
-    var rankEmoji = ['🥇','🥈','🥉','4️⃣'];
+    var ranks = getRanking();
     var html = '';
     modelOrder.forEach(function(k) {
-      var m = models[k];
-      html += '<div class="model-card rank-' + m.rank + '">';
+      var m = models[k]; var rank = ranks[k]; var total = getTotal(k);
+      html += '<div class="model-card' + (rank === 1 ? ' rank-1' : '') + '">';
       html += '<div class="model-color-bar" style="background:' + m.color + '"></div>';
       html += '<div class="model-card-top">';
-      html += '<div class="rank-badge" style="background:' + m.colorAlpha + ';color:' + m.color + '">' + m.rank + '</div>';
+      html += '<div class="rank-badge" style="background:' + m.colorAlpha + ';color:' + m.color + '">' + rank + '</div>';
       html += '<div class="model-name">' + m.name + '</div>';
       html += '<div class="model-site">' + m.site + ' — ' + m.tech + '</div>';
-      html += '<div class="model-meta">';
-      html += '<div class="meta-item"><span class="meta-label">Čas</span><span class="meta-value">' + m.time + '</span></div>';
+      html += '<div class="model-meta"><div class="meta-item"><span class="meta-label">Čas</span><span class="meta-value">' + m.time + '</span></div>';
+      if (m.needsFix) html += '<div class="meta-item"><span class="meta-label">Stav</span><span class="meta-value" style="color:#ef4444">' + (currentMode === 'delivered' ? 'NEFUNKČNÉ' : 'OPRAVENÉ') + '</span></div>';
+      else html += '<div class="meta-item"><span class="meta-label">Stav</span><span class="meta-value" style="color:#22c55e">FUNKČNÉ</span></div>';
       html += '</div>';
-      html += '<div class="model-score-big" style="color:' + m.color + '">' + m.total + '%</div>';
-      html += '<div class="model-score-rank">#' + m.rank + ' celkové poradie</div>';
+      html += '<div class="model-score-big" style="color:' + m.color + '">' + total + '%</div>';
+      html += '<div class="model-score-rank">#' + rank + ' celkové poradie</div>';
       html += '</div>';
+      // Score bars
       html += '<div class="model-bars">';
       categories.forEach(function(cat) {
-        var v = m.scores[cat.key];
-        html += '<div class="bar-row">';
-        html += '<div class="bar-label">' + cat.key + '</div>';
-        html += '<div class="bar-track"><div class="bar-fill" style="width:' + v + '%;background:' + m.color + '" data-width="' + v + '"></div></div>';
-        html += '<div class="bar-val" style="color:' + m.color + '">' + v + '</div>';
-        html += '</div>';
+        var v = getScores(k)[cat.key];
+        html += '<div class="bar-row"><div class="bar-label">' + cat.key + '</div>';
+        html += '<div class="bar-track"><div class="bar-fill" style="width:' + v + '%;background:' + m.color + '"></div></div>';
+        html += '<div class="bar-val" style="color:' + m.color + '">' + v + '</div></div>';
       });
       html += '</div>';
+      // Delivered note
+      if (currentMode === 'delivered' && m.deliveredNote) {
+        html += '<div class="delivered-note">' + m.deliveredNote + '</div>';
+      }
+      // Highlights
       html += '<div class="model-highlights">';
       html += '<div class="highlight-title">Silné stránky</div><div class="highlight-list">';
       m.highlights.forEach(function(h){ html += '<div class="highlight-item">' + h + '</div>'; });
@@ -349,14 +340,14 @@
         html += '</div>';
       }
       html += '</div>';
-      html += '<button class="preview-btn" onclick="switchModel(\'' + k + '\')" data-model="' + k + '">▶ Otvoriť Live Preview</button>';
+      html += '<button class="preview-btn" onclick="switchModel(\'' + k + '\')">▶ Otvoriť Live Preview</button>';
       html += '</div>';
     });
     grid.innerHTML = html;
   }
 
   // ============================================================
-  // PREVIEW TABS
+  // PREVIEW
   // ============================================================
   function buildModelTabs() {
     var tabs = document.getElementById('modelTabs');
@@ -364,12 +355,26 @@
     var html = '';
     modelOrder.forEach(function(k) {
       var m = models[k];
-      html += '<button class="model-tab' + (k === currentModel ? ' active' : '') + '" data-model="' + k + '" onclick="switchModel(\'' + k + '\')" role="tab" aria-selected="' + (k === currentModel) + '">';
-      html += '<span class="dot" style="background:' + m.color + '"></span>';
-      html += '<span>' + m.name + '</span>';
-      html += '</button>';
+      html += '<button class="model-tab' + (k === currentModel ? ' active' : '') + '" data-model="' + k + '" onclick="switchModel(\'' + k + '\')" role="tab">';
+      html += '<span class="dot" style="background:' + m.color + '"></span><span>' + m.name + '</span></button>';
     });
     tabs.innerHTML = html;
+  }
+
+  function switchModelInfo(key) {
+    var m = models[key]; var total = getTotal(key);
+    var info = document.getElementById('previewInfo');
+    if (info) {
+      var warning = '';
+      if (currentMode === 'delivered' && m.needsFix) {
+        warning = '<div class="preview-info-item" style="color:#ef4444"><strong>⚠ ' + (key === 'sonnet' ? 'Stránka je neviditeľná (opacity:0)' : 'Default Next.js homepage') + '</strong></div>';
+      }
+      info.innerHTML = '<div class="preview-info-item"><span>Model:</span><strong style="color:' + m.color + '">' + m.name + '</strong></div>'
+        + '<div class="preview-info-item"><span>Stránka:</span><strong>' + m.site + '</strong></div>'
+        + '<div class="preview-info-item"><span>Čas:</span><strong>' + m.time + '</strong></div>'
+        + '<div class="preview-info-item"><span>Skóre:</span><strong style="color:' + m.color + '">' + total + '%</strong></div>'
+        + warning;
+    }
   }
 
   window.switchModel = function(key) {
@@ -377,31 +382,15 @@
     currentModel = key;
     var m = models[key];
     var frame = document.getElementById('previewFrame');
-    if (frame) frame.src = m.iframeSrc;
-    // Update tabs
+    if (frame) frame.src = currentMode === 'delivered' ? m.iframeSrcOriginal : m.iframeSrc;
     document.querySelectorAll('.model-tab').forEach(function(t) {
       var active = t.getAttribute('data-model') === key;
       t.classList.toggle('active', active);
-      t.setAttribute('aria-selected', active);
-      if (active) t.style.background = m.colorAlpha;
-      else t.style.background = '';
-      if (active) t.style.borderColor = m.color;
-      else t.style.borderColor = '';
+      if (active) { t.style.background = m.colorAlpha; t.style.borderColor = m.color; }
+      else { t.style.background = ''; t.style.borderColor = ''; }
     });
-    // Update preview info
-    var info = document.getElementById('previewInfo');
-    if (info) {
-      info.innerHTML = '<div class="preview-info-item"><span>Model:</span><strong style="color:' + m.color + '">' + m.name + '</strong></div>'
-        + '<div class="preview-info-item"><span>Stránka:</span><strong>' + m.site + '</strong></div>'
-        + '<div class="preview-info-item"><span>Tech:</span><strong>' + m.tech + '</strong></div>'
-        + '<div class="preview-info-item"><span>Čas:</span><strong>' + m.time + '</strong></div>'
-        + '<div class="preview-info-item"><span>Skóre:</span><strong style="color:' + m.color + '">' + m.total + '%</strong></div>';
-    }
-    // Scroll to preview section
-    var previewSection = document.getElementById('preview');
-    if (previewSection) {
-      previewSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    switchModelInfo(key);
+    document.getElementById('preview').scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   window.setDevice = function(device) {
@@ -422,56 +411,33 @@
     if (!grid) return;
     var html = '';
     categories.forEach(function(cat) {
-      var best = modelOrder.reduce(function(a, b) {
-        return models[b].scores[cat.key] > models[a].scores[cat.key] ? b : a;
-      });
+      var best = modelOrder.reduce(function(a, b) { return getScores(b)[cat.key] > getScores(a)[cat.key] ? b : a; });
       var m = models[best];
-      html += '<div class="winner-item">';
-      html += '<span class="winner-cat">' + cat.key + '</span>';
-      html += '<span class="winner-model" style="color:' + m.color + '">' + m.name.replace('Claude ', '') + '</span>';
-      html += '</div>';
+      html += '<div class="winner-item"><span class="winner-cat">' + cat.key + '</span>';
+      html += '<span class="winner-model" style="color:' + m.color + '">' + m.name.replace('Claude ', '') + '</span></div>';
     });
     grid.innerHTML = html;
   }
 
   // ============================================================
-  // SCROLL ANIMATIONS
+  // SCROLL + HEADER
   // ============================================================
   function initScrollAnimations() {
     var els = document.querySelectorAll('.animate-in');
-    if (!els.length) return;
-    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) {
-      els.forEach(function(el){ el.classList.add('visible'); });
-      return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      els.forEach(function(el){ el.classList.add('visible'); }); return;
     }
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
     }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-    els.forEach(function(el){ observer.observe(el); });
+    els.forEach(function(el){ obs.observe(el); });
   }
 
-  // ============================================================
-  // HEADER SCROLL
-  // ============================================================
   function initHeader() {
-    var header = document.getElementById('header');
-    var ticking = false;
+    var header = document.getElementById('header'); var ticking = false;
     window.addEventListener('scroll', function() {
-      if (!ticking) {
-        requestAnimationFrame(function() {
-          if (header) header.classList.toggle('scrolled', window.scrollY > 40);
-          ticking = false;
-        });
-        ticking = true;
-      }
+      if (!ticking) { requestAnimationFrame(function() { if (header) header.classList.toggle('scrolled', window.scrollY > 40); ticking = false; }); ticking = true; }
     }, { passive: true });
-    // Mobile menu
     var hamburger = document.getElementById('hamburger');
     var mobileNav = document.getElementById('mobileNav');
     if (hamburger && mobileNav) {
@@ -482,24 +448,14 @@
         document.body.style.overflow = open ? 'hidden' : '';
       });
       mobileNav.querySelectorAll('a').forEach(function(a) {
-        a.addEventListener('click', function() {
-          mobileNav.classList.remove('open');
-          hamburger.classList.remove('open');
-          hamburger.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-        });
+        a.addEventListener('click', function() { mobileNav.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; });
       });
     }
-    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(function(a) {
       a.addEventListener('click', function(e) {
-        var href = this.getAttribute('href');
-        if (href === '#') return;
+        var href = this.getAttribute('href'); if (href === '#') return;
         var target = document.querySelector(href);
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
       });
     });
   }
@@ -514,27 +470,13 @@
     buildModelTabs();
     buildCategoryWinners();
     initScrollAnimations();
-
-    // Init preview iframe with first model
     switchModel('opus');
 
-    // Wait for Chart.js
-    if (window.Chart) {
-      initChartDefaults();
-      buildRankingChart();
-      buildRadarChart();
-      buildTimeChart();
-      buildEfficiencyChart();
-    } else {
-      var s = document.querySelector('script[src*="chart.js"]');
-      if (s) s.addEventListener('load', function() {
-        initChartDefaults();
-        buildRankingChart();
-        buildRadarChart();
-        buildTimeChart();
-        buildEfficiencyChart();
-      });
+    function startCharts() {
+      initChartDefaults(); buildRankingChart(); buildRadarChart(); buildTimeChart(); buildEfficiencyChart();
     }
+    if (window.Chart) startCharts();
+    else { var s = document.querySelector('script[src*="chart.js"]'); if (s) s.addEventListener('load', startCharts); }
   });
 
 })();

@@ -115,6 +115,16 @@ h1 { font-size: clamp(36px, 6vw, 72px); margin-bottom:20px; }
 .method-card p { font-size:14px; color: var(--text2); line-height:1.6; }
 .method-card blockquote { margin-top:12px; padding:12px 14px; background: rgba(99,102,241,0.08); border-left: 3px solid var(--violet); border-radius:0 8px 8px 0; font-size:13px; font-style:italic; color: var(--text2); }
 
+/* ---- Mode toggle ---- */
+.mode-toggle { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:28px; background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius-sm); padding:12px 20px; }
+.mode-label { font-size:14px; font-weight:600; color: var(--text2); }
+.mode-btn { padding:8px 18px; border-radius:999px; border: 1px solid var(--border); background: transparent; color: var(--text2); font-size:13px; font-weight:600; cursor:pointer; transition: all 200ms; }
+.mode-btn:hover { border-color: rgba(255,255,255,0.25); color: var(--text); }
+.mode-btn.active { background: var(--grad); color:#fff; border-color: transparent; box-shadow: 0 2px 12px rgba(99,102,241,0.3); }
+
+/* ---- Delivered note ---- */
+.delivered-note { margin:0 24px 16px; padding:12px 16px; background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.25); border-left: 3px solid #ef4444; border-radius:0 8px 8px 0; font-size:13px; color: #fca5a5; line-height:1.6; }
+
 /* ---- Charts ---- */
 .chart-wrap { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding:28px 24px; margin-bottom:24px; }
 .chart-title { font-size:16px; font-family: var(--font-h); margin-bottom:20px; color: var(--text); }

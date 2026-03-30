@@ -144,6 +144,13 @@
       <h2>Celkové hodnotenie</h2>
     </div>
 
+    <!-- Mode toggle -->
+    <div class="mode-toggle animate-in">
+      <span class="mode-label">Zobrazenie:</span>
+      <button class="mode-btn active" data-mode="delivered" onclick="setMode('delivered')">Ako dodané (originál)</button>
+      <button class="mode-btn" data-mode="fixed" onclick="setMode('fixed')">Po oprave</button>
+    </div>
+
     <!-- Overall ranking chart -->
     <div class="chart-wrap animate-in">
       <h3 class="chart-title">Celkové skóre (vážený priemer)</h3>
@@ -179,10 +186,10 @@
           <tfoot>
             <tr class="total-row">
               <td colspan="2"><strong>CELKOM (vážený)</strong></td>
-              <td class="col-opus"><strong>92.6%</strong></td>
-              <td class="col-sonnet"><strong>89.6%</strong></td>
-              <td class="col-kimi"><strong>87.9%</strong></td>
-              <td class="col-gemini"><strong>83.2%</strong></td>
+                      <td class="col-opus"><strong></strong></td>
+              <td class="col-sonnet"><strong></strong></td>
+              <td class="col-kimi"><strong></strong></td>
+              <td class="col-gemini"><strong></strong></td>
             </tr>
           </tfoot>
         </table>
@@ -322,25 +329,25 @@
         <div class="finding-icon">🏆</div>
         <h3>Celkový víťaz</h3>
         <div class="finding-winner">Claude Opus 4.6</div>
-        <p>Najrýchlejší (10m 47s), najkompletnejšia funkcionalita (carousel, mapa, animované čítače, focus trap), najlepšia prístupnosť. Dokázal viac ako React stack za zlomok času.</p>
+        <p>Najrýchlejší (10m 47s), <strong>funguje okamžite bez opráv</strong>. Carousel, mapa, animované čítače, focus trap. Vanilla HTML/CSS/JS = žiadne build kroky, žiadne závislosti.</p>
       </div>
       <div class="finding-card animate-in" style="--d:0.1s">
-        <div class="finding-icon">💎</div>
-        <h3>Najčistejší kód</h3>
+        <div class="finding-icon">👻</div>
+        <h3>Neviditeľný web</h3>
         <div class="finding-winner" style="color:#3b82f6">Claude Sonnet 4.6</div>
-        <p>TypeScript strict mode, modulárne React komponenty, hooks patterns — najlepšia architektúra pre tím vývojárov. Ideálny ak plánuješ rozšíriť projekt.</p>
+        <p>Excelentný kód (TypeScript strict, React hooks), ale <strong>výsledok je kompletne neviditeľný</strong>. 45 elementov s opacity:0 od Framer Motion. Na statickom hostingu = biela stránka.</p>
       </div>
       <div class="finding-card animate-in" style="--d:0.2s">
         <div class="finding-icon">⚡</div>
-        <h3>Najoriginálnejší</h3>
+        <h3>Spoľahlivá dvojka</h3>
         <div class="finding-winner" style="color:#06b6d4">Kimi 2.5</div>
-        <p>Jediný model ktorý vytvoril canvas neural-network particle animáciu. Čistý vanilla JS s IIFE modulmi, plynulá typografia s clamp(). Žiadne závislosti.</p>
+        <p><strong>Funguje okamžite bez opráv</strong>. Canvas particle animácia, fluid typografia, vanilla JS. Žiadne závislosti. Druhý najlepší funkčný výsledok.</p>
       </div>
       <div class="finding-card animate-in" style="--d:0.3s">
-        <div class="finding-icon">🏗️</div>
-        <h3>Najambicióznejší</h3>
+        <div class="finding-icon">💀</div>
+        <h3>Nedokončený projekt</h3>
         <div class="finding-winner" style="color:#f59e0b">Gemini 3.1 Pro</div>
-        <p>Jediný model s multi-page architektúrou (4 skutočné stránky), reusable UI komponenty, centralizované data.ts. Avšak najpomalší a s problémami v štruktúre projektu.</p>
+        <p>Homepage = <strong>default Next.js "To get started, edit page.tsx"</strong>. Najpomalší (23m 31s), chaotická štruktúra, a ešte sa aj pýtal otázky. Komponenty existujú, ale projekt je rozbitý.</p>
       </div>
     </div>
 
@@ -352,10 +359,13 @@
     <div class="insight-box animate-in">
       <h3>💡 Hlavné zistenie</h3>
       <p>
-        <strong>Väčší model ≠ lepší výsledok.</strong> Opus 4.6 vyhrál nad Gemini 3.1 Pro napriek tomu, že Gemini dostal 2× viac času.
-        Kľúčovým faktorom bola <strong>schopnosť dokončiť projekt bez zbytočných otázok</strong> a
-        <strong>kvalita riešenia v konečnom produkte</strong>, nie výber technológie.
-        Vanilla HTML/CSS/JS bol pre toto zadanie rovnako dobrý (ak nie lepší) ako React+TypeScript stack.
+        <strong>Fungujúci web > dokonalý kód.</strong> Opus a Kimi použili vanilla HTML/CSS/JS a ich weby fungujú okamžite.
+        Sonnet a Gemini zvolili React+Next.js stack — Sonnet odovzdal neviditeľný web (Framer Motion opacity bug),
+        Gemini nedokončil ani homepage. <strong>Prepni na "Ako dodané" aby si videl realitu.</strong>
+      </p>
+      <p style="margin-top:12px">
+        <strong>React nie je vždy odpoveď.</strong> Pre prezentačný web vanilla stack fungoval spoľahlivejšie.
+        Oba vanilla modely (Opus, Kimi) odovzdali funkčný produkt. Oba React modely (Sonnet, Gemini) vyžadovali manuálne opravy.
       </p>
     </div>
   </div>
