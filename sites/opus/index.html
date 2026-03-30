@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexusAI — AI &amp; IT Agentúra | Žilina, Slovensko</title>
+  <meta name="description" content="NexusAI — prémiová AI a IT agentúra zo Žiliny. AI riešenia, custom softvér, IT konzulting a automatizácia procesov pre slovenské firmy.">
+  <meta name="theme-color" content="#06060a">
+  <meta property="og:title" content="NexusAI — AI &amp; IT Agentúra Žilina">
+  <meta property="og:description" content="Prémiová AI a IT agentúra zo Žiliny. Inteligentné riešenia pre firmy, ktoré chcú rásť.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Preskočiť na obsah</a>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- HEADER -->
+<header class="header" id="header" role="banner">
+  <div class="container">
+    <a href="#hero" class="logo" aria-label="NexusAI — domovská stránka">
+      <svg class="logo-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect width="36" height="36" rx="8" fill="url(#logoGrad)"/>
+        <path d="M10 26V10l8 10.5L26 10v16" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs><linearGradient id="logoGrad" x1="0" y1="0" x2="36" y2="36"><stop stop-color="#3b82f6"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs>
+      </svg>
+      <span>Nexus<span class="logo-accent">AI</span></span>
+    </a>
+    <nav class="nav-desktop" role="navigation" aria-label="Hlavná navigácia">
+      <a href="#about">O nás</a>
+      <a href="#services">Služby</a>
+      <a href="#portfolio">Projekty</a>
+      <a href="#team">Tím</a>
+      <a href="#testimonials">Referencie</a>
+      <a href="#contact" class="btn btn-sm btn-primary">Kontakt</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Otvoriť menu" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Mobilná navigácia">
+  <nav>
+    <a href="#about">O nás</a>
+    <a href="#services">Služby</a>
+    <a href="#portfolio">Projekty</a>
+    <a href="#team">Tím</a>
+    <a href="#testimonials">Referencie</a>
+    <a href="#contact">Kontakt</a>
+  </nav>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+    <div class="hero-orb hero-orb-4"></div>
+    <div class="hero-noise"></div>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge animate-on-scroll">
+        <span class="pulse-dot"></span>
+        Prijímame nových klientov 2026
+      </div>
+      <h1 class="animate-on-scroll" style="--delay: 0.1s">
+        Inteligentné riešenia<br>
+        <span class="gradient-text">pre vašu firmu</span>
+      </h1>
+      <p class="hero-subtitle animate-on-scroll" style="--delay: 0.2s">
+        Sme AI a IT agentúra zo Žiliny. Navrhujeme, vyvíjame
+        a nasadzujeme inteligentné softvérové riešenia, ktoré
+        vašu firmu posúvajú pred konkurenciu.
+      </p>
+      <div class="hero-cta animate-on-scroll" style="--delay: 0.3s">
+        <a href="#contact" class="btn btn-primary btn-lg">
+          Nezáväzná konzultácia
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#portfolio" class="btn btn-ghost">Pozrite si naše projekty</a>
+      </div>
+      <div class="hero-metrics animate-on-scroll" style="--delay: 0.4s">
+        <div class="metric">
+          <span class="metric-value counter" data-target="73" data-suffix="+">0</span>
+          <span class="metric-label">Dokončených projektov</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric">
+          <span class="metric-value counter" data-target="98" data-suffix="%">0</span>
+          <span class="metric-label">Spokojnosť klientov</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric">
+          <span class="metric-value counter" data-target="6" data-suffix="">0</span>
+          <span class="metric-label">Rokov na trhu</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
+             alt="Moderný kancelársky priestor" loading="lazy" width="800" height="600">
+        <div class="about-image-accent" aria-hidden="true"></div>
+      </div>
+      <div class="about-content animate-on-scroll" style="--delay: 0.15s">
+        <span class="section-label">O nás</span>
+        <h2 class="section-title">Zrodení v srdci Slovenska, rastieme s vaším podnikaním</h2>
+        <p>NexusAI vzniklo v roku 2020 v Žiline s jasnou víziou — priblížiť silu umelej
+           inteligencie slovenským firmám. Náš tím kombinuje hlboké technické znalosti
+           s porozumením lokálneho trhu.</p>
+        <p>Veríme, že technológia má slúžiť ľuďom. Preto každé naše riešenie
+           navrhujeme tak, aby prinášalo merateľné výsledky a reálne zjednodušovalo
+           každodennú prácu vašich tímov.</p>
+        <div class="about-values">
+          <div class="value-item">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 0 1 4 4c0 1.95-2 4-4 8-2-4-4-6.05-4-8a4 4 0 0 1 4-4z"/><circle cx="12" cy="6" r="1.5"/></svg>
+            </div>
+            <div>
+              <h4>Inovácie s rozumom</h4>
+              <p>Nasadzujeme overené AI technológie, nie experimenty.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div>
+              <h4>Lokálne, globálne</h4>
+              <p>Zakorenení v Žiline, slúžime klientom po celom Slovensku a v EÚ.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section section-alt">
+  <div class="container">
+    <div class="section-header center animate-on-scroll">
+      <span class="section-label">Naše služby</span>
+      <h2 class="section-title">Komplexné riešenia pre digitálny svet</h2>
+      <p class="section-desc">Od AI automatizácie po custom softvér — pokrývame všetko,
+         čo vaša firma potrebuje na to, aby bola o krok vpred.</p>
+    </div>
+    <div class="services-grid">
+      <article class="service-card animate-on-scroll">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 0 1 4 4c0 1.95-2 4-4 8-2-4-4-6.05-4-8a4 4 0 0 1 4-4z"/><path d="M4.5 16.5c-1.5 1.38-2.5 2.93-2.5 4.5 0 2.5 4.5 3 10 3s10-.5 10-3c0-1.57-1-3.12-2.5-4.5"/></svg>
+        </div>
+        <h3>AI riešenia</h3>
+        <p>Inteligentné chatboty, spracovanie dokumentov, prediktívna analytika
+           a custom AI modely šité na mieru vášmu podnikaniu.</p>
+        <ul class="service-features">
+          <li>AI chatboty a asistenti</li>
+          <li>Spracovanie a analýza dát</li>
+          <li>Prediktívne modely</li>
+        </ul>
+      </article>
+      <article class="service-card animate-on-scroll" style="--delay: 0.1s">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
+        </div>
+        <h3>Custom softvér</h3>
+        <p>Webové a mobilné aplikácie na mieru. Od interných nástrojov
+           po zákaznícke portály — vždy s dôrazom na výkon a UX.</p>
+        <ul class="service-features">
+          <li>Webové aplikácie a SaaS</li>
+          <li>Mobilné aplikácie</li>
+          <li>API integrácie</li>
+        </ul>
+      </article>
+      <article class="service-card animate-on-scroll" style="--delay: 0.2s">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3>IT konzulting</h3>
+        <p>Strategické poradenstvo v oblasti digitálnej transformácie,
+           cloud architektúry a výberu technológií pre váš biznis.</p>
+        <ul class="service-features">
+          <li>Digitálna transformácia</li>
+          <li>Cloud architektúra</li>
+          <li>Technologický audit</li>
+        </ul>
+      </article>
+      <article class="service-card animate-on-scroll" style="--delay: 0.3s">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </div>
+        <h3>Automatizácia procesov</h3>
+        <p>Zautomatizujte opakujúce sa úlohy a ušetrite desiatky hodín mesačne.
+           Prepájame systémy, automatizujeme workflow a eliminujeme manuálnu prácu.</p>
+        <ul class="service-features">
+          <li>Workflow automatizácia</li>
+          <li>Integrácia systémov</li>
+          <li>RPA riešenia</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="section">
+  <div class="container">
+    <div class="section-header center animate-on-scroll">
+      <span class="section-label">Projekty</span>
+      <h2 class="section-title">Vybrané prípadové štúdie</h2>
+      <p class="section-desc">Pozrite sa, ako našim klientom pomáhame rásť
+         a zefektívňovať procesy.</p>
+    </div>
+    <div class="portfolio-grid">
+      <article class="portfolio-card animate-on-scroll">
+        <div class="portfolio-image">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
+               alt="Dashboard analytickej platformy" loading="lazy" width="800" height="500">
+          <div class="portfolio-overlay">
+            <div class="portfolio-metrics">
+              <div>
+                <span class="portfolio-metric-value">+340%</span>
+                <span class="portfolio-metric-label">navýšenie konverzií</span>
+              </div>
+              <div>
+                <span class="portfolio-metric-value">-65%</span>
+                <span class="portfolio-metric-label">prevádzkové náklady</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <h3>AutoFlow — Inteligentný skladový systém</h3>
+          <p>AI-poháňaný systém správy skladu pre strednú výrobnú firmu. Prediktívne
+             objednávanie, automatická kategorizácia a real-time dashboardy.</p>
+          <div class="portfolio-tags">
+            <span class="tag">Python</span>
+            <span class="tag">TensorFlow</span>
+            <span class="tag">React</span>
+            <span class="tag">PostgreSQL</span>
+          </div>
+        </div>
+      </article>
+      <article class="portfolio-card animate-on-scroll" style="--delay: 0.1s">
+        <div class="portfolio-image">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80"
+               alt="Zdravotnícka technológia" loading="lazy" width="800" height="500">
+          <div class="portfolio-overlay">
+            <div class="portfolio-metrics">
+              <div>
+                <span class="portfolio-metric-value">30h</span>
+                <span class="portfolio-metric-label">úspora týždenne</span>
+              </div>
+              <div>
+                <span class="portfolio-metric-value">94%</span>
+                <span class="portfolio-metric-label">presnosť odpovedí</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <h3>MediBot — AI asistent pre zdravotníctvo</h3>
+          <p>Chatbot pre sieť polikliník, ktorý odpovedá na otázky pacientov,
+             pomáha s objednávaním a triážou podľa protokolu FHIR.</p>
+          <div class="portfolio-tags">
+            <span class="tag">OpenAI</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">FHIR</span>
+          </div>
+        </div>
+      </article>
+      <article class="portfolio-card animate-on-scroll" style="--delay: 0.2s">
+        <div class="portfolio-image">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80"
+               alt="Realitná platforma" loading="lazy" width="800" height="500">
+          <div class="portfolio-overlay">
+            <div class="portfolio-metrics">
+              <div>
+                <span class="portfolio-metric-value">2.5×</span>
+                <span class="portfolio-metric-label">viac dopytov</span>
+              </div>
+              <div>
+                <span class="portfolio-metric-value">4.8/5</span>
+                <span class="portfolio-metric-label">hodnotenie</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <h3>SmartEstate — Platforma pre reality</h3>
+          <p>Moderná realitná platforma s AI odporúčaním nehnuteľností,
+             virtuálnymi prehliadkami a automatizovaným spracovaním dopytov.</p>
+          <div class="portfolio-tags">
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">AI</span>
+            <span class="tag">Maps API</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="section section-alt">
+  <div class="container">
+    <div class="section-header center animate-on-scroll">
+      <span class="section-label">Náš tím</span>
+      <h2 class="section-title">Ľudia za NexusAI</h2>
+      <p class="section-desc">Sme partia nadšených profesionálov,
+         ktorí milujú technológie a riešenie problémov.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card animate-on-scroll">
+        <div class="team-photo">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&fit=crop&crop=face"
+               alt="Marek Kováľ" loading="lazy" width="400" height="400">
+        </div>
+        <h3>Marek Kováľ</h3>
+        <p class="team-role">CEO &amp; AI Architekt</p>
+        <div class="team-socials">
+          <a href="#" aria-label="LinkedIn profil — Marek Kováľ">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="team-card animate-on-scroll" style="--delay: 0.1s">
+        <div class="team-photo">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80&fit=crop&crop=face"
+               alt="Zuzana Nemcová" loading="lazy" width="400" height="400">
+        </div>
+        <h3>Zuzana Nemcová</h3>
+        <p class="team-role">CTO &amp; Lead Developer</p>
+        <div class="team-socials">
+          <a href="#" aria-label="LinkedIn profil — Zuzana Nemcová">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="team-card animate-on-scroll" style="--delay: 0.2s">
+        <div class="team-photo">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80&fit=crop&crop=face"
+               alt="Tomáš Hruška" loading="lazy" width="400" height="400">
+        </div>
+        <h3>Tomáš Hruška</h3>
+        <p class="team-role">Senior AI Engineer</p>
+        <div class="team-socials">
+          <a href="#" aria-label="LinkedIn profil — Tomáš Hruška">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="team-card animate-on-scroll" style="--delay: 0.3s">
+        <div class="team-photo">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80&fit=crop&crop=face"
+               alt="Lucia Bielíková" loading="lazy" width="400" height="400">
+        </div>
+        <h3>Lucia Bielíková</h3>
+        <p class="team-role">UX/UI Dizajnérka</p>
+        <div class="team-socials">
+          <a href="#" aria-label="LinkedIn profil — Lucia Bielíková">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="team-card animate-on-scroll" style="--delay: 0.4s">
+        <div class="team-photo">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80&fit=crop&crop=face"
+               alt="Peter Ďuriš" loading="lazy" width="400" height="400">
+        </div>
+        <h3>Peter Ďuriš</h3>
+        <p class="team-role">Full-Stack Developer</p>
+        <div class="team-socials">
+          <a href="#" aria-label="LinkedIn profil — Peter Ďuriš">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="team-card animate-on-scroll" style="--delay: 0.5s">
+        <div class="team-photo">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80&fit=crop&crop=face"
+               alt="Anna Sedláková" loading="lazy" width="400" height="400">
+        </div>
+        <h3>Anna Sedláková</h3>
+        <p class="team-role">Project Manager</p>
+        <div class="team-socials">
+          <a href="#" aria-label="LinkedIn profil — Anna Sedláková">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="section">
+  <div class="container">
+    <div class="section-header center animate-on-scroll">
+      <span class="section-label">Referencie</span>
+      <h2 class="section-title">Čo hovoria naši klienti</h2>
+    </div>
+    <div class="testimonials-carousel animate-on-scroll" role="region" aria-label="Klientske referencie" aria-roledescription="carousel">
+      <div class="testimonials-track" id="testimonialsTrack">
+        <blockquote class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="1 z 3">
+          <div class="testimonial-stars" role="img" aria-label="5 z 5 hviezdičiek">★★★★★</div>
+          <p class="testimonial-quote">"NexusAI nám kompletne zmenilo prístup k dátam. Ich AI systém
+             na analýzu zákazníkov nám zvýšil tržby o 85 % za prvý polrok. Profesionálny
+             prístup a vynikajúca komunikácia."</p>
+          <footer class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=96&q=80&fit=crop&crop=face"
+                 alt="Ing. Martin Horváth" loading="lazy" width="48" height="48" class="testimonial-avatar">
+            <div>
+              <cite class="testimonial-name">Ing. Martin Horváth</cite>
+              <span class="testimonial-company">CEO, DataTech Solutions s.r.o.</span>
+            </div>
+          </footer>
+        </blockquote>
+        <blockquote class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="2 z 3">
+          <div class="testimonial-stars" role="img" aria-label="5 z 5 hviezdičiek">★★★★★</div>
+          <p class="testimonial-quote">"Vďaka AI asistentovi od NexusAI sme zredukovali čas strávený
+             administratívou o 30 hodín týždenne. Investícia sa nám vrátila do troch mesiacov.
+             Odporúčam bez výhrad."</p>
+          <footer class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=96&q=80&fit=crop&crop=face"
+                 alt="JUDr. Eva Majerová" loading="lazy" width="48" height="48" class="testimonial-avatar">
+            <div>
+              <cite class="testimonial-name">JUDr. Eva Majerová</cite>
+              <span class="testimonial-company">Partner, Majerová &amp; Partners</span>
+            </div>
+          </footer>
+        </blockquote>
+        <blockquote class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="3 z 3">
+          <div class="testimonial-stars" role="img" aria-label="5 z 5 hviezdičiek">★★★★★</div>
+          <p class="testimonial-quote">"Automatizácia marketingových procesov od NexusAI znížila naše
+             náklady na lead o 45 %. Tím bol reaktívny, dodal načas a kvalita predčila
+             naše očakávania."</p>
+          <footer class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&q=80&fit=crop&crop=face"
+                 alt="PhDr. Roman Zachar" loading="lazy" width="48" height="48" class="testimonial-avatar">
+            <div>
+              <cite class="testimonial-name">PhDr. Roman Zachar</cite>
+              <span class="testimonial-company">Marketing Director, GreenBuild a.s.</span>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+      <div class="testimonial-controls">
+        <button class="testimonial-prev" aria-label="Predchádzajúci">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="testimonial-dots" role="tablist" aria-label="Výber referencie">
+          <button class="testimonial-dot active" role="tab" aria-selected="true" aria-label="Referencia 1"></button>
+          <button class="testimonial-dot" role="tab" aria-selected="false" aria-label="Referencia 2"></button>
+          <button class="testimonial-dot" role="tab" aria-selected="false" aria-label="Referencia 3"></button>
+        </div>
+        <button class="testimonial-next" aria-label="Ďalší">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section section-alt">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-label">Kontakt</span>
+      <h2 class="section-title">Porozprávajme sa o vašom projekte</h2>
+      <p class="section-desc">Nechajte nám správu a ozveme sa do 24 hodín
+         s nezáväznou cenovou ponukou.</p>
+    </div>
+    <div class="contact-grid">
+      <form class="contact-form animate-on-scroll" id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="name">Meno a priezvisko</label>
+          <input type="text" id="name" name="name" required minlength="2"
+                 autocomplete="name" placeholder="Ján Novák">
+          <span class="form-error" aria-live="polite"></span>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mailová adresa</label>
+          <input type="email" id="email" name="email" required
+                 autocomplete="email" placeholder="jan@firma.sk">
+          <span class="form-error" aria-live="polite"></span>
+        </div>
+        <div class="form-group">
+          <label for="message">Vaša správa</label>
+          <textarea id="message" name="message" required minlength="10" rows="5"
+                    placeholder="Popíšte svoj projekt alebo otázku..."></textarea>
+          <span class="form-error" aria-live="polite"></span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-full" id="submitBtn">
+          <span class="btn-text">Odoslať správu</span>
+          <span class="btn-loading" aria-hidden="true">
+            <svg class="spinner" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+            Odosielam...
+          </span>
+          <span class="btn-success" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Odoslané!
+          </span>
+        </button>
+        <div id="formStatus" class="form-status" aria-live="assertive"></div>
+      </form>
+      <div class="contact-info animate-on-scroll" style="--delay: 0.15s">
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4>Adresa</h4>
+              <p>Národná 15<br>010 01 Žilina<br>Slovenská republika</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <h4>E-mail</h4>
+              <a href="mailto:info@nexusai.sk">info@nexusai.sk</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.68 2.35a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.75.32 1.54.55 2.35.68A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <h4>Telefón</h4>
+              <a href="tel:+421907234567">+421 907 234 567</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2612.5!2d18.7393!3d49.2231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47145f0e3e7bffff%3A0x400f7d1c6978bd0!2s%C5%BDilina!5e0!3m2!1ssk!2ssk!4v1"
+                  width="100%" height="240" style="border:0; border-radius: 16px;"
+                  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                  title="Mapa — NexusAI kancelária v Žiline"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#hero" class="logo">
+          <span>Nexus<span class="logo-accent">AI</span></span>
+        </a>
+        <p>Prémiová AI a IT agentúra zo Žiliny. Inteligentné riešenia
+           pre firmy, ktoré chcú rásť.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-icon" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
+          </a>
+          <a href="#" class="social-icon social-icon--stroke" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Služby</h4>
+        <a href="#services">AI riešenia</a>
+        <a href="#services">Custom softvér</a>
+        <a href="#services">IT konzulting</a>
+        <a href="#services">Automatizácia</a>
+      </div>
+      <div class="footer-col">
+        <h4>Spoločnosť</h4>
+        <a href="#about">O nás</a>
+        <a href="#portfolio">Projekty</a>
+        <a href="#team">Tím</a>
+        <a href="#testimonials">Referencie</a>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <a href="mailto:info@nexusai.sk">info@nexusai.sk</a>
+        <a href="tel:+421907234567">+421 907 234 567</a>
+        <a href="#contact">Napísať správu</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NexusAI s.r.o. Všetky práva vyhradené.</p>
+      <div class="footer-legal">
+        <a href="#">Ochrana súkromia</a>
+        <a href="#">Obchodné podmienky</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>

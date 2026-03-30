@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Model Showcase — $10K Website Challenge</title>
+  <meta name="description" content="Porovnanie 4 AI modelov na rovnakom zadaní: vytvorenie 10 000$ prezentačnej webstránky pre slovenskou AI agentúru zo Žiliny.">
+  <meta property="og:title" content="AI Model Showcase — $10K Website Challenge">
+  <meta property="og:description" content="Claude Opus 4.6 vs Sonnet 4.6 vs Gemini 3.1 Pro vs Kimi 2.5 — rovnaké zadanie, rôzne výsledky.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Preskočiť na obsah</a>
+
+<header class="header" id="header" role="banner">
+  <div class="container">
+    <a href="#" class="logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="url(#hGrad)"/>
+        <path d="M8 24V8l8 9 8-9v16" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs><linearGradient id="hGrad" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#3b82f6"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs>
+      </svg>
+      <span>AI <span class="accent">Showcase</span></span>
+    </a>
+    <nav role="navigation" aria-label="Hlavná navigácia">
+      <a href="#overview">Metodológia</a>
+      <a href="#comparison">Porovnanie</a>
+      <a href="#models">Modely</a>
+      <a href="#preview">Live Preview</a>
+      <a href="#findings">Závery</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <nav>
+    <a href="#overview">Metodológia</a>
+    <a href="#comparison">Porovnanie</a>
+    <a href="#models">Modely</a>
+    <a href="#preview">Live Preview</a>
+    <a href="#findings">Závery</a>
+  </nav>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="badge animate-in">
+        <span class="pulse"></span>
+        cc-router experiment — Marec 2026
+      </div>
+      <h1 class="animate-in" style="--d:0.1s">
+        AI Model Showcase<br>
+        <span class="gradient-text">$10K Website Challenge</span>
+      </h1>
+      <p class="hero-sub animate-in" style="--d:0.2s">
+        4 AI modely. Rovnaké zadanie. Rôzne výsledky.<br>
+        Kto vytvoril najlepšiu prezentačnú webstránku pre Slovenskú AI agentúru?
+      </p>
+      <div class="hero-stats animate-in" style="--d:0.3s">
+        <div class="hstat">
+          <span class="hstat-val">4</span>
+          <span class="hstat-lbl">AI modely</span>
+        </div>
+        <div class="hstat-div"></div>
+        <div class="hstat">
+          <span class="hstat-val">9</span>
+          <span class="hstat-lbl">kategórií</span>
+        </div>
+        <div class="hstat-div"></div>
+        <div class="hstat">
+          <span class="hstat-val">10m 47s</span>
+          <span class="hstat-lbl">najrýchlejší čas</span>
+        </div>
+        <div class="hstat-div"></div>
+        <div class="hstat">
+          <span class="hstat-val">92.6%</span>
+          <span class="hstat-lbl">max. skóre</span>
+        </div>
+      </div>
+      <a href="#overview" class="btn btn-primary animate-in" style="--d:0.4s">
+        Zobraziť výsledky
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section id="overview" class="section">
+  <div class="container">
+    <div class="section-header animate-in">
+      <span class="label">Metodológia</span>
+      <h2>Ako prebiehal experiment</h2>
+      <p class="section-desc">Každý model dostal rovnakú základnú úlohu, ktorú cc-router's Claude Opus 4.6 optimalizoval do modelu-špecifického promptu.</p>
+    </div>
+    <div class="method-grid">
+      <div class="method-card animate-in">
+        <div class="method-num">01</div>
+        <h3>Základný prompt</h3>
+        <p>Rovnaké zadanie pre všetky modely:</p>
+        <blockquote>"Vytvor 10k$ prezentačnú webstránku pre Slovenskú AI a IT agentúru zo Žiliny"</blockquote>
+      </div>
+      <div class="method-card animate-in" style="--d:0.1s">
+        <div class="method-num">02</div>
+        <h3>cc-router optimalizácia</h3>
+        <p>Claude Opus 4.6 prepísal prompt pre každý model podľa jeho silných stránok a benchmarkových dát (SWE-bench, Terminal Bench, LiveCodeBench).</p>
+      </div>
+      <div class="method-card animate-in" style="--d:0.2s">
+        <div class="method-num">03</div>
+        <h3>Generovanie</h3>
+        <p>Každý model pracoval autonómne v Claude Code CLI. Meria sa čas od štartu po commit hotového výsledku vrátane všetkých súborov.</p>
+      </div>
+      <div class="method-card animate-in" style="--d:0.3s">
+        <div class="method-num">04</div>
+        <h3>Hodnotenie</h3>
+        <p>9 kategórií s váhami podľa dôležitosti pre reálny projekt (Design & UX 20%, Obsah 15%, Funkcie 15%, Kvalita kódu 15%…).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section id="comparison" class="section section-alt">
+  <div class="container">
+    <div class="section-header animate-in">
+      <span class="label">Výsledky</span>
+      <h2>Celkové hodnotenie</h2>
+    </div>
+
+    <!-- Overall ranking chart -->
+    <div class="chart-wrap animate-in">
+      <h3 class="chart-title">Celkové skóre (vážený priemer)</h3>
+      <div class="chart-container" style="height:220px">
+        <canvas id="rankingChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Radar chart -->
+    <div class="chart-wrap animate-in" style="--d:0.15s">
+      <h3 class="chart-title">Porovnanie v 9 dimenziách</h3>
+      <div class="chart-container" style="height:400px">
+        <canvas id="radarChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Score table -->
+    <div class="table-wrap animate-in" style="--d:0.2s">
+      <h3 class="chart-title">Detail skóre podľa kategórií</h3>
+      <div class="table-scroll">
+        <table class="score-table" id="scoreTable">
+          <thead>
+            <tr>
+              <th>Kategória</th>
+              <th>Váha</th>
+              <th class="col-opus">Opus 4.6</th>
+              <th class="col-sonnet">Sonnet 4.6</th>
+              <th class="col-kimi">Kimi 2.5</th>
+              <th class="col-gemini">Gemini 3.1</th>
+            </tr>
+          </thead>
+          <tbody id="scoreTableBody"></tbody>
+          <tfoot>
+            <tr class="total-row">
+              <td colspan="2"><strong>CELKOM (vážený)</strong></td>
+              <td class="col-opus"><strong>92.6%</strong></td>
+              <td class="col-sonnet"><strong>89.6%</strong></td>
+              <td class="col-kimi"><strong>87.9%</strong></td>
+              <td class="col-gemini"><strong>83.2%</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODELS -->
+<section id="models" class="section">
+  <div class="container">
+    <div class="section-header animate-in">
+      <span class="label">Modely</span>
+      <h2>Detailná analýza</h2>
+    </div>
+    <div class="models-grid" id="modelsGrid"></div>
+  </div>
+</section>
+
+<!-- LIVE PREVIEW -->
+<section id="preview" class="section section-alt">
+  <div class="container">
+    <div class="section-header animate-in">
+      <span class="label">Live Preview</span>
+      <h2>Pozrite si weby naživo</h2>
+    </div>
+
+    <div class="preview-controls animate-in">
+      <div class="model-tabs" id="modelTabs" role="tablist" aria-label="Výber modelu">
+      </div>
+      <div class="device-tabs" role="group" aria-label="Veľkosť zariadenia">
+        <button class="device-btn active" data-device="desktop" aria-label="Desktop" onclick="setDevice('desktop')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          Desktop
+        </button>
+        <button class="device-btn" data-device="tablet" aria-label="Tablet" onclick="setDevice('tablet')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg>
+          Tablet
+        </button>
+        <button class="device-btn" data-device="mobile" aria-label="Mobil" onclick="setDevice('mobile')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg>
+          Mobil
+        </button>
+      </div>
+    </div>
+
+    <div class="preview-info animate-in" id="previewInfo"></div>
+
+    <div class="iframe-outer animate-in" style="--d:0.1s">
+      <div class="iframe-wrap" id="iframeWrap">
+        <iframe id="previewFrame" title="Live preview webu" loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EFFICIENCY -->
+<section id="efficiency" class="section">
+  <div class="container">
+    <div class="section-header animate-in">
+      <span class="label">Efektivita</span>
+      <h2>Čas vs. Kvalita</h2>
+      <p class="section-desc">Opus 4.6 bol nielen najrýchlejší, ale aj najkompletnejší. Gemini bol o 120% pomalší a stále nedokázal správne zorganizovať projekt.</p>
+    </div>
+    <div class="efficiency-grid">
+      <div class="chart-wrap animate-in">
+        <h3 class="chart-title">Čas generovania</h3>
+        <div class="chart-container" style="height:260px">
+          <canvas id="timeChart"></canvas>
+        </div>
+      </div>
+      <div class="chart-wrap animate-in" style="--d:0.1s">
+        <h3 class="chart-title">Skóre / Minútu (efektivita)</h3>
+        <div class="chart-container" style="height:260px">
+          <canvas id="efficiencyChart"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="tech-table-wrap animate-in">
+      <h3 class="chart-title">Technológia & veľkosť projektu</h3>
+      <div class="table-scroll">
+        <table class="score-table">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Tech stack</th>
+              <th>Súbory</th>
+              <th>Prístup</th>
+              <th>Čas buildu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="model-dot" style="background:#8b5cf6"></span> Claude Opus 4.6</td>
+              <td>Vanilla HTML/CSS/JS</td>
+              <td>3 súbory</td>
+              <td>Single-page, carousel, mapa</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td><span class="model-dot" style="background:#3b82f6"></span> Claude Sonnet 4.6</td>
+              <td>Next.js 16 + React 19 + TypeScript + Tailwind + Framer Motion</td>
+              <td>21 súborov</td>
+              <td>Single-page, Framer Motion animácie</td>
+              <td>~45s</td>
+            </tr>
+            <tr>
+              <td><span class="model-dot" style="background:#06b6d4"></span> Kimi 2.5</td>
+              <td>Vanilla HTML/CSS/JS</td>
+              <td>3 súbory</td>
+              <td>Single-page, canvas particle efekt</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td><span class="model-dot" style="background:#f59e0b"></span> Gemini 3.1 Pro</td>
+              <td>Next.js 16 + React 19 + TypeScript + Tailwind + Framer Motion</td>
+              <td>32 súborov</td>
+              <td>Multi-page (4 stránky), glassmorphism</td>
+              <td>~50s</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINDINGS -->
+<section id="findings" class="section section-alt">
+  <div class="container">
+    <div class="section-header animate-in">
+      <span class="label">Závery</span>
+      <h2>Kľúčové zistenia</h2>
+    </div>
+    <div class="findings-grid">
+      <div class="finding-card animate-in winner-card">
+        <div class="finding-icon">🏆</div>
+        <h3>Celkový víťaz</h3>
+        <div class="finding-winner">Claude Opus 4.6</div>
+        <p>Najrýchlejší (10m 47s), najkompletnejšia funkcionalita (carousel, mapa, animované čítače, focus trap), najlepšia prístupnosť. Dokázal viac ako React stack za zlomok času.</p>
+      </div>
+      <div class="finding-card animate-in" style="--d:0.1s">
+        <div class="finding-icon">💎</div>
+        <h3>Najčistejší kód</h3>
+        <div class="finding-winner" style="color:#3b82f6">Claude Sonnet 4.6</div>
+        <p>TypeScript strict mode, modulárne React komponenty, hooks patterns — najlepšia architektúra pre tím vývojárov. Ideálny ak plánuješ rozšíriť projekt.</p>
+      </div>
+      <div class="finding-card animate-in" style="--d:0.2s">
+        <div class="finding-icon">⚡</div>
+        <h3>Najoriginálnejší</h3>
+        <div class="finding-winner" style="color:#06b6d4">Kimi 2.5</div>
+        <p>Jediný model ktorý vytvoril canvas neural-network particle animáciu. Čistý vanilla JS s IIFE modulmi, plynulá typografia s clamp(). Žiadne závislosti.</p>
+      </div>
+      <div class="finding-card animate-in" style="--d:0.3s">
+        <div class="finding-icon">🏗️</div>
+        <h3>Najambicióznejší</h3>
+        <div class="finding-winner" style="color:#f59e0b">Gemini 3.1 Pro</div>
+        <p>Jediný model s multi-page architektúrou (4 skutočné stránky), reusable UI komponenty, centralizované data.ts. Avšak najpomalší a s problémami v štruktúre projektu.</p>
+      </div>
+    </div>
+
+    <div class="category-winners animate-in">
+      <h3>Víťazi v kategóriách</h3>
+      <div class="winners-grid" id="winnersGrid"></div>
+    </div>
+
+    <div class="insight-box animate-in">
+      <h3>💡 Hlavné zistenie</h3>
+      <p>
+        <strong>Väčší model ≠ lepší výsledok.</strong> Opus 4.6 vyhrál nad Gemini 3.1 Pro napriek tomu, že Gemini dostal 2× viac času.
+        Kľúčovým faktorom bola <strong>schopnosť dokončiť projekt bez zbytočných otázok</strong> a
+        <strong>kvalita riešenia v konečnom produkte</strong>, nie výber technológie.
+        Vanilla HTML/CSS/JS bol pre toto zadanie rovnako dobrý (ak nie lepší) ako React+TypeScript stack.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-brand">AI Model Showcase</p>
+        <p class="footer-desc">cc-router experiment — Marec 2026</p>
+      </div>
+      <div class="footer-links">
+        <a href="#overview">Metodológia</a>
+        <a href="#comparison">Porovnanie</a>
+        <a href="#preview">Live Preview</a>
+      </div>
+    </div>
+    <p class="footer-copy">Vytvorené pomocou cc-router + Claude Opus 4.6</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
